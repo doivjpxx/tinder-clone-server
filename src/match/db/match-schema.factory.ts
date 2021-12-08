@@ -11,7 +11,8 @@ export class MatchSchemaFactory
   create(match: Match): MatchSchema {
     return {
       _id: new ObjectId(match.getId()),
-      index: match.getIndex(),
+      recId: match.getRecId(),
+      userRecId: match.getUserRecId(),
       action: match.getAction(),
       matchWith: match.getMatchWith(),
       createdAt: match.getCreatedAt(),
@@ -22,7 +23,8 @@ export class MatchSchemaFactory
   createFromSchema(matchSchema: MatchSchema): Match {
     return new Match(
       matchSchema._id.toHexString(),
-      matchSchema.index,
+      matchSchema.recId,
+      matchSchema.userRecId,
       matchSchema.action,
       matchSchema.matchWith,
       matchSchema.createdAt,

@@ -11,7 +11,7 @@ export class ActionSchemaFactory
   create(action: Action): ActionSchema {
     return {
       _id: new ObjectId(action.getId()),
-      index: action.getIndex(),
+      recId: action.getRecId(),
       type: action.getType(),
       createdAt: action.getCreatedAt(),
       updatedAt: action.getUpdatedAt(),
@@ -21,7 +21,7 @@ export class ActionSchemaFactory
   createFromSchema(actionSchema: ActionSchema): Action {
     return new Action(
       actionSchema._id.toHexString(),
-      actionSchema.index,
+      actionSchema.recId,
       actionSchema.type,
       actionSchema.createdAt,
       actionSchema.updatedAt,

@@ -18,7 +18,6 @@ import { ActionSchema } from "./db/action.schema";
         schema: SchemaFactory.createForClass(ActionSchema),
       },
     ]),
-    MatchModule,
   ],
   controllers: [],
   providers: [
@@ -26,8 +25,6 @@ import { ActionSchema } from "./db/action.schema";
     ActionDtoRepository,
     ActionSchemaFactory,
     ActionFactory,
-    // ...UserCommandHandlers,
-    // ...UserQueryHandlers,
   ],
   exports: [
     ActionEntityRepository,

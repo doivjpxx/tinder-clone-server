@@ -11,7 +11,7 @@ export class UserSchemaFactory
   create(user: User): UserSchema {
     return {
       _id: new ObjectId(user.getId()),
-      index: user.getIndex(),
+      recId: user.getRecId(),
       firstName: user.getFirstName(),
       lastName: user.getLastName(),
       dateOfBirth: user.getDOB(),
@@ -28,7 +28,7 @@ export class UserSchemaFactory
       userSchema.lastName,
       userSchema.dateOfBirth,
       userSchema.avatar,
-      userSchema.index,
+      userSchema.recId,
       userSchema.createdAt,
       userSchema.updatedAt,
     );

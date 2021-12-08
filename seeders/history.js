@@ -1,44 +1,46 @@
-const mainUserIndex = 1;
+const currentUserRecId = 1;
 
-module.exports = [
+const data = [
   {
-    index: 4,
+    userRecId: currentUserRecId,
     action: 1,
-    matchWith: mainUserIndex,
+    matchWith: 5,
   },
   {
-    index: 7,
+    userRecId: currentUserRecId,
     action: 1,
-    matchWith: mainUserIndex,
+    matchWith: 12,
   },
   {
-    index: 10,
+    userRecId: currentUserRecId,
     action: 1,
-    matchWith: mainUserIndex,
+    matchWith: 25,
   },
   {
-    index: 15,
+    userRecId: currentUserRecId,
     action: 1,
-    matchWith: mainUserIndex,
+    matchWith: 31,
   },
   {
-    index: 20,
+    userRecId: currentUserRecId,
     action: 1,
-    matchWith: mainUserIndex,
+    matchWith: 7,
   },
   {
-    index: 22,
+    userRecId: currentUserRecId,
     action: 1,
-    matchWith: mainUserIndex,
+    matchWith: 65,
   },
   {
-    index: 25,
+    userRecId: currentUserRecId,
     action: 1,
-    matchWith: mainUserIndex,
+    matchWith: 89,
   },
   {
-    index: 30,
+    userRecId: currentUserRecId,
     action: 1,
-    matchWith: mainUserIndex,
+    matchWith: 44,
   },
-]
+];
+
+module.exports = data.map((d, idx) => ({ ...d, recId: idx }));

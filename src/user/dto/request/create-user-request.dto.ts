@@ -3,5 +3,5 @@ export class CreateUserRequest {
   lastName: string;
   dateOfBirth: Date;
   avatar: string;
-  index?: number;
+  recId?: number;
 }

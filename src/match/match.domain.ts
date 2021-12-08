@@ -4,7 +4,8 @@ import { ObjectId } from 'mongodb';
 export class Match extends AggregateRoot {
   constructor(
     private readonly _id: string,
-    private readonly index: number,
+    private readonly recId: number,
+    private readonly userRecId: number,
     private readonly action: number,
     private readonly matchWith: number,
     private readonly createdAt?: Date,
@@ -17,8 +18,12 @@ export class Match extends AggregateRoot {
     return this._id;
   }
 
-  getIndex(): number {
-    return this.index
+  getRecId(): number {
+    return this.recId;
+  }
+
+  getUserRecId(): number {
+    return this.userRecId;
   }
 
   getAction(): number {

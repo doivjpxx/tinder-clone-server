@@ -10,9 +10,8 @@ export class UserFindByIdHandler implements IQueryHandler<FindByIdQuery> {
     private readonly matchDtoRepository: MatchDtoRepository,
   ) { }
 
-  async execute({ userId }): Promise<any[]> {
+  async execute({ userId }): Promise<any> {
     const currentUser = await this.userRepository.findOneById(userId);
-    const historyData = await this.matchDtoRepository.findByIndex(currentUser.getIndex());
-    return historyData;
+    return currentUser;
   }
 }

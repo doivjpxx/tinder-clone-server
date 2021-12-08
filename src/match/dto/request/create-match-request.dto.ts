@@ -1,5 +1,6 @@
 export class CreateMatchRequest {
+  recId: number;
+  userRecId: number;
   action: number;
-  index: number;
   matchWith: number;
 }

@@ -7,10 +7,10 @@ import { ActionSchema } from "./action.schema";
 export class ActionDtoRepository {
   constructor(
     @InjectModel(ActionSchema.name)
-    private readonly ActionModel: Model<ActionSchema>,
+    private readonly actionModel: Model<ActionSchema>,
   ) { }
 
   async findByIndex(index: number): Promise<any> {
-    return await this.ActionModel.find({ ActionWith: index } as FilterQuery<ActionSchema>);
+    return await this.actionModel.find({ ActionWith: index } as FilterQuery<ActionSchema>);
   }
 }

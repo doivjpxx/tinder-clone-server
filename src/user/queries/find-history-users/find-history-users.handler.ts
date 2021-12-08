@@ -15,16 +15,16 @@ export class FindHistoryUsersHandler implements IQueryHandler<FindHistoryUsersQu
   ) { }
 
   async execute({ userId }): Promise<any[]> {
-    const currentUser = await this.userRepository.findOneById(userId);
+    const currentUser = await this.userRepository.findOneById(String(userId));
     const actions = await this.actionRepository.findAll();
-    const historyData = await this.matchDtoRepository.findByIndex(currentUser.getIndex());
-    const users = await this.userDtoRepository.find({ index: { $in: historyData.map(p => p.index) } });
+    const historyData = await this.matchDtoRepository.findByRecId(currentUser.getRecId());
+    const users = await this.userDtoRepository.find({ recId: { $in: historyData.map(p => p.matchWith) } });
     const response = await Promise.all(historyData.map(data => {
       return {
-        index: data.index,
-        user: users.find(u => u.index === data.index).firstName,
-        matchWith: currentUser.getFirstName(),
-        action: actions.find(i => i.getIndex() === data.action).getType(),
+        recId: data.recId,
+        matched: users.find(u => u.recId === data.matchWith)?.firstName,
+        currentUser: currentUser.getFirstName(),
+        action: actions.find(i => i.getRecId() === data.action).getType(),
       };
     }))
     return response;

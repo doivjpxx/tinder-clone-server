@@ -1,10 +1,10 @@
 module.exports = [
   {
-    index: 1,
+    recId: 1,
     type: 'liked',
   },
   {
-    index: 2,
+    recId: 2,
     type: 'ignored',
   }
 ];

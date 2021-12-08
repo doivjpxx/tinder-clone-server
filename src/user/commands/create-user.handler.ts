@@ -11,9 +11,9 @@ export class CreateUserHandler
   ) { }
 
   async execute({ createUserRequest }: CreateUserCommand): Promise<void> {
-    const { firstName, lastName, dateOfBirth, avatar, index } = createUserRequest;
+    const { firstName, lastName, dateOfBirth, avatar, recId } = createUserRequest;
     const user = this.eventPublisher.mergeObjectContext(
-      await this.userFactory.create(firstName, lastName, dateOfBirth, avatar, index),
+      await this.userFactory.create(firstName, lastName, dateOfBirth, avatar, recId),
     );
     user.commit();
   }

@@ -4,7 +4,7 @@ import { IdentifiableEntitySchema } from 'src/database/identifiable-entity.schem
 @Schema({ versionKey: false, collection: 'users' })
 export class UserSchema extends IdentifiableEntitySchema {
   @Prop()
-  readonly index: number;
+  readonly recId: number;
 
   @Prop()
   readonly firstName: string;

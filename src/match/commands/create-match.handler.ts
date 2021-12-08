@@ -11,9 +11,9 @@ export class CreateMatchHandler
   ) { }
 
   async execute({ createMatchRequest }: CreateMatchCommand): Promise<void> {
-    const { index, action, matchWith } = createMatchRequest;
+    const { recId, userRecId, action, matchWith } = createMatchRequest;
     const match = this.eventPublisher.mergeObjectContext(
-      await this.matchFactory.create(index, action, matchWith),
+      await this.matchFactory.create(recId, userRecId, action, matchWith),
     );
     match.commit();
   }

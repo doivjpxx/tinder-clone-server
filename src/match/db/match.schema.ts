@@ -5,7 +5,10 @@ import { IdentifiableEntitySchema } from 'src/database/identifiable-entity.schem
 @Schema({ versionKey: false, collection: 'matches' })
 export class MatchSchema extends IdentifiableEntitySchema {
   @Prop()
-  readonly index: number;
+  readonly recId: number;
+
+  @Prop()
+  readonly userRecId: number;
 
   @Prop()
   readonly action: number;

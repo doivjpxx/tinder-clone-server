@@ -10,7 +10,7 @@ export class MatchDtoRepository {
     private readonly matchModel: Model<MatchSchema>,
   ) { }
 
-  async findByIndex(index: number): Promise<any> {
-    return await this.matchModel.find({ matchWith: index } as FilterQuery<MatchSchema>);
+  async findByRecId(recId: number): Promise<any> {
+    return await this.matchModel.find({ userRecId: recId } as FilterQuery<MatchSchema>);
   }
 }

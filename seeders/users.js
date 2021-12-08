@@ -1,19 +1,21 @@
 const faker = require('faker');
 
-const sampleUsersCount = 100;
-const insertData = [{
-  firstName: faker.name.firstName(1),
-  lastName: faker.name.lastName(1),
-  dateOfBirth: faker.datatype.datetime({ min: 315532800000, max: 946684800000 }),
-  avatar: faker.image.avatar(),
-}];
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
 
-for (let i = 0; i < sampleUsersCount; i++) {
+const sampleUsersCount = 100;
+const insertData = [];
+
+for (let i = 1; i <= sampleUsersCount; i++) {
   const randGender = Math.round(Math.random() * 10) % 2;
 
   insertData.push({
     firstName: faker.name.firstName(randGender),
-    index: i + 1,
+    recId: i + 1,
+    age: getRandomInt(18, 30),
     lastName: faker.name.lastName(randGender),
     dateOfBirth: faker.datatype.datetime({ min: 315532800000, max: 946684800000 }),
     avatar: faker.image.avatar(),

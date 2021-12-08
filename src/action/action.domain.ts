@@ -3,7 +3,7 @@ import { AggregateRoot } from '@nestjs/cqrs';
 export class Action extends AggregateRoot {
   constructor(
     private readonly _id: string,
-    private readonly index: number,
+    private readonly recId: number,
     private readonly type: string,
     private readonly createdAt?: Date,
     private readonly updatedAt?: Date,
@@ -15,8 +15,8 @@ export class Action extends AggregateRoot {
     return this._id;
   }
 
-  getIndex(): number {
-    return this.index
+  getRecId(): number {
+    return this.recId;
   }
 
   getType(): string {

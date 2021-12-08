@@ -6,7 +6,6 @@ import { User } from 'src/user/user.domain';
 import { UserSchemaFactory } from './user-schema.factory';
 import { UserSchema } from './user.schema';
 
-
 @Injectable()
 export class UserEntityRepository extends BaseEntityRepository<UserSchema, User> {
   constructor(

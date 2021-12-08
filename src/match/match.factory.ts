@@ -13,13 +13,15 @@ export class MatchFactory implements EntityFactory<Match> {
   ) { }
 
   async create(
-    index: number,
+    recId: number,
+    userRecId: number,
     action: number,
     matchWith: number,
   ): Promise<Match> {
     const match = new Match(
       new ObjectId().toHexString(),
-      index,
+      recId,
+      userRecId,
       action,
       matchWith,
     );

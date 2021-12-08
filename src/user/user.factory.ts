@@ -17,7 +17,7 @@ export class UserFactory implements EntityFactory<User> {
     lastName: string,
     dateOfBirth: Date,
     avatar: string,
-    index: number,
+    recId: number,
   ): Promise<User> {
     const user = new User(
       new ObjectId().toHexString(),
@@ -25,7 +25,7 @@ export class UserFactory implements EntityFactory<User> {
       lastName,
       dateOfBirth,
       avatar,
-      index,
+      recId,
     );
     await this.userEntityRepository.create(user);
     user.apply(new UserCreatedEvent(user.getId()));

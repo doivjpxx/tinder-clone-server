@@ -8,7 +8,7 @@ export class User extends AggregateRoot {
     private readonly lastName: string,
     private readonly dateOfBirth: Date,
     private readonly avatar: string,
-    private readonly index?: number,
+    private readonly recId?: number,
     private readonly createdAt?: Date,
     private readonly updatedAt?: Date,
   ) {
@@ -19,8 +19,8 @@ export class User extends AggregateRoot {
     return this._id;
   }
 
-  getIndex(): number {
-    return this.index
+  getRecId(): number {
+    return this.recId
   }
 
   getFirstName(): string {

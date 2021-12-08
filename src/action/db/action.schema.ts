@@ -7,5 +7,5 @@ export class ActionSchema extends IdentifiableEntitySchema {
   readonly type: string;
 
   @Prop()
-  readonly index: number;
+  readonly recId: number;
 }

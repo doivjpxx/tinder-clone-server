@@ -3,15 +3,15 @@
   "migrations": [
     {
       "title": "1638853604365-add-history.js",
-      "timestamp": 1638860732084
+      "timestamp": 1638980919401
     },
     {
       "title": "1638860217713-add-actions.js",
-      "timestamp": 1638860217713
+      "timestamp": 1638980919415
     },
     {
       "title": "1638860643139-add-users.js",
-      "timestamp": 1638860732124
+      "timestamp": 1638980919436
     }
   ]
 }
