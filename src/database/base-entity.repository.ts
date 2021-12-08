@@ -11,6 +11,10 @@ export abstract class BaseEntityRepository<
   TEntity extends AggregateRoot
   > extends EntityRepository<TSchema, TEntity> {
 
+  async countAll(): Promise<number> {
+    return await this.count();
+  }
+
   async findOneById(id: string): Promise<TEntity> {
     return this.findOne({ _id: new ObjectId(id) } as FilterQuery<TSchema>);
   }

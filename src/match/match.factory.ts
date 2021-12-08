@@ -13,14 +13,14 @@ export class MatchFactory implements EntityFactory<Match> {
   ) { }
 
   async create(
-    recId: number,
     userRecId: number,
     action: number,
     matchWith: number,
   ): Promise<Match> {
+    const count = await this.matchEntityRepository.count();
     const match = new Match(
       new ObjectId().toHexString(),
-      recId,
+      count,
       userRecId,
       action,
       matchWith,

@@ -74,4 +74,8 @@ export abstract class EntityRepository<
   async delete(_id: string): Promise<void> {
     await this.entityModel.remove({ _id });
   }
+
+  async count(): Promise<number> {
+    return await this.entityModel.countDocuments();
+  }
 }

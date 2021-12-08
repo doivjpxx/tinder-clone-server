@@ -1,6 +1,8 @@
 import { Body, Controller, Get, Param, Post, Req, UseInterceptors } from '@nestjs/common';
-import { QueryBus } from '@nestjs/cqrs';
+import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { HeadersInterceptor } from 'src/app.intercept';
+import { ActUserCommand } from './commands/act-user.command';
+import { UserActRequest } from './dto/request/act-user-quest.dto';
 import { CreateUserRequest } from './dto/request/create-user-request.dto';
 import { FindAllUserQuery } from './queries/find-all';
 import { FindByIdQuery } from './queries/find-by-id';
@@ -12,7 +14,18 @@ import { UserDto } from './user.dto';
 export class UserController {
   constructor(
     private readonly queryBus: QueryBus,
+    private readonly commandBus: CommandBus,
   ) { }
+
+  @Post('action')
+  async actToUser(@Req() req, @Body() data: UserActRequest): Promise<any> {
+
+    return this.commandBus.execute<ActUserCommand, any>(new ActUserCommand({
+      userId: req.headers['user-id'],
+      userTargetId: data.userTargetId,
+      actionRecId: data.actionRecId,
+    }));
+  }
 
   @Get('history')
   async getUsersHistory(@Req() req): Promise<any[]> {

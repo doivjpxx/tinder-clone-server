@@ -11,6 +11,8 @@ import { UserEntityRepository } from "./db/user-entity.repository";
 import { UserSchemaFactory } from "./db/user-schema.factory";
 import { MatchModule } from "src/match/match.module";
 import { ActionModule } from "src/action/action.module";
+import { UserEventHandlers } from "./events";
+import { MatchFactory } from "src/match/match.factory";
 
 @Module({
   imports: [
@@ -30,7 +32,9 @@ import { ActionModule } from "src/action/action.module";
     UserDtoRepository,
     UserSchemaFactory,
     UserFactory,
+    MatchFactory,
     ...UserCommandHandlers,
+    ...UserEventHandlers,
     ...UserQueryHandlers,
   ],
 })
